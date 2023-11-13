@@ -49,17 +49,17 @@ router.post('/submitForm', async (req, res) => {
 
         const validationError = newFormData.validateSync();
         if (validationError) {
-            console.error('Validation Error:', validationError);
+            // console.error('Validation Error:', validationError);
             res.status(400).json({ message: 'Validation Error', errors: validationError.errors });
             return;
         }
         // Save the document to the database
         const savedFormData = await newFormData.save();
         if (!savedFormData) {
-            console.log('Error in saving form data');
+            // console.log('Error in saving form data');
             res.status(400).json({ message: "Error in saving form data" })
         }
-        console.log('Form data saved successfully:', savedFormData);
+        // console.log('Form data saved successfully:', savedFormData);
         res.status(201).json({ message: 'Form data submitted successfully', savedFormData });
 
     } catch (error) {
@@ -70,7 +70,7 @@ router.post('/submitForm', async (req, res) => {
 router.get('/form-data-all', async (req, res) => {
     try {
         const allFormData = await FormData.find();
-        console.log('All Form Data:', allFormData);
+        // console.log('All Form Data:', allFormData);
         if (!allFormData) {
             res.status(400).json({ message: "Wrong Request no data available" })
 

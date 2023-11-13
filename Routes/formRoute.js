@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import FormData from "../Model/formData.js";
-import { transporter } from "../Config/mailer.js";
+
 
 dotenv.config();
 
@@ -12,31 +12,6 @@ const router = express.Router();
 router.post('/submitForm', async (req, res) => {
     try {
         const { name, email, phone, areaCode, country, business } = req.body;
-
-        // const mailOptions = {
-        //     from: process.env.MAIL_ID,
-        //     to: process.env.RECIPIENT_EMAIL,
-        //     subject: 'New Form Submission',
-        //     html: `
-        //   <p>Name: ${name}</p>
-        //   <p>Email: ${email}</p>
-        //   <p>Phone: ${areaCode} ${phone}</p>
-        //   <p>Country: ${country}</p>
-        //   <p>Business: ${business}</p>
-        // `,
-        // };
-        // try {
-        //     await transporter.sendMail(mailOptions);
-        //     console.log('Email sent successfully');
-        // } catch (emailError) {
-        //     console.error('Error sending email:', emailError);
-        //     // Handle email sending error appropriately, e.g., log, respond to the client, etc.
-        //     res.status(500).json({ message: 'Error sending email' });
-        //     return;
-        // }
-
-        // console.log('Received form data:', req.body);
-
 
         const newFormData = new FormData({
             name,

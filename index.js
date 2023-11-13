@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from "cors";
 import dotenv from "dotenv";
 import helmet from 'helmet';
-import nodemailer from 'nodemailer';
+
 
 import { imageRouter } from './Routes/imgRoute.js';
 import { isAuthenticated } from './Authentication/adminAuth.js';

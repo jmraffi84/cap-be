@@ -22,10 +22,10 @@ app.use(helmet());
 
 
 // application middleware here
-app.use(imageRouter);
-app.use(formRouter)
+app.use("/", imageRouter);
+app.use("/", formRouter)
 app.use("/admin", isAuthenticated, adminRouter)
-app.use(sideImageRouter);
+app.use("/", sideImageRouter);
 
 
 app.use((err, req, res, next) => {

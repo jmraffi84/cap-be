@@ -32,6 +32,7 @@ router.get("/side-banner-all", async (req, res) => {
 
     try {
         const allImages = await SideBannerImage.find();
+        console.log(allImages);
         res.status(200).json({ images: allImages });
     }
     catch (error) {
